@@ -18,6 +18,16 @@ describe('CookbookCli', () => {
 
   describe('Listing recipes', () => {
     test('should display the correct message listing all of the recipe names', () => {
+      
+      const myCookbook = new Cookbook();
+      const myCookbookCli = new CookbookCli(myCookbook);
+
+      myCookbookCli.add('biriyani',['rice','chicken','spices']);
+      myCookbookCli.add('hotdog',['bun','sausage','ketchup']);
+
+      const message =  myCookbookCli.list();
+
+      expect(message).toEqual('You have these recipes: biriyani, hotdog');
 
     });
   });
