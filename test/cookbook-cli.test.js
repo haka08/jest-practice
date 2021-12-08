@@ -50,6 +50,16 @@ describe('CookbookCli', () => {
 
   describe('Deleting a recipe', () => {
     test('should accept the recipe name and display the correct message', () => {
+      
+      const myCookbook = new Cookbook();
+      const myCookbookCli = new CookbookCli(myCookbook);
+
+      myCookbookCli.add('biriyani',['rice','chicken','spices']);
+      myCookbookCli.add('hotdog',['bread','meat','cheese']);
+
+      const message =  myCookbookCli.remove('hotdog');
+
+      expect(message).toEqual('You have successfully removed the recipe: hotdog');
 
     });
   });
