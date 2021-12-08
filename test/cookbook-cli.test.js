@@ -4,6 +4,14 @@ const { CookbookCli } = require('../src/cookbook-cli');
 describe('CookbookCli', () => {
   describe('Adding recipes', () => {
     test('should accept the recipe information and display the correct message', () => {
+      
+      const myCookbook = new Cookbook();
+      const myCookbookCli = new CookbookCli(myCookbook);
+
+      const message = myCookbookCli.add('biriyani',['rice','chicken','spices']);
+
+      expect(message).toEqual('You have successfully added the recipe: biriyani'); 
+      
 
     });
   });
