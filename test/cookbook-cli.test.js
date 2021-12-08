@@ -34,6 +34,16 @@ describe('CookbookCli', () => {
 
   describe('Retrieving a recipe', () => {
     test('should display the ingredients required to make the specified recipe', () => {
+      
+      const myCookbook = new Cookbook();
+      const myCookbookCli = new CookbookCli(myCookbook);
+
+      myCookbookCli.add('biriyani',['rice','chicken','spices']);
+      myCookbookCli.add('hotdog',['bun','sausage','ketchup']);
+
+      const message =  myCookbookCli.get('hotdog');
+
+      expect(message).toEqual('The ingredients for hotdog are: bun, sausage and ketchup');
 
     });
   });
